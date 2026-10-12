@@ -1,238 +1,225 @@
-import React, { useState, useEffect } from 'react';
-import { ChevronLeft, ChevronRight, ShieldCheck, Star, ArrowRight, Play, CheckCircle2, Award } from 'lucide-react';
+import React from 'react';
+import { ArrowRight, User, Users, Shield, Award, Sparkles } from 'lucide-react';
+
+const SteeringWheelIcon = ({ className = "w-4 h-4" }) => (
+  <svg 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <circle cx="12" cy="12" r="10" />
+    <circle cx="12" cy="12" r="2.5" />
+    <path d="M12 2v7.5" />
+    <path d="M4.5 16.5 10 13" />
+    <path d="M19.5 16.5 14 13" />
+  </svg>
+);
+
+const CarFrontIcon = ({ className = "w-5 h-5 text-orange-500" }) => (
+  <svg 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <path d="m21 8-2 2-1.5-3.7A2 2 0 0 0 15.6 5H8.4a2 2 0 0 0-1.9 1.3L5 10l-2-2" />
+    <path d="M7 14h.01" />
+    <path d="M17 14h.01" />
+    <rect width="18" height="8" x="3" y="10" rx="2" />
+    <path d="M5 18v2" />
+    <path d="M19 18v2" />
+  </svg>
+);
+
+const CertificateIcon = ({ className = "w-5 h-5 text-purple-600" }) => (
+  <svg 
+    viewBox="0 0 24 24" 
+    fill="none" 
+    stroke="currentColor" 
+    strokeWidth="2" 
+    strokeLinecap="round" 
+    strokeLinejoin="round" 
+    className={className}
+  >
+    <rect width="14" height="18" x="5" y="2" rx="2" />
+    <circle cx="12" cy="10" r="3" />
+    <path d="m10 14-1.5 5 3.5-1.5 3.5 1.5-1.5-5" />
+  </svg>
+);
 
 const Hero = () => {
-  const slides = [
-    {
-      badge: "State-Certified Driving Academy",
-      title: "Master the Road with",
-      highlight: "Absolute Confidence",
-      subtitle: "Overcome your driving anxiety with patient, state-certified mentors. We provide a calm, safety-first dual-pedal environment so you can learn at your own pace and pass on your very first try.",
-      image: "https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=2070&auto=format&fit=crop",
-      tag: "Dual-Control Safety",
-      ctaText: "Book Your First Lesson",
-      ctaLink: "#book",
-      secondaryText: "Explore Packages",
-      secondaryLink: "#services",
-      metric: "98.4%",
-      metricLabel: "First-Time Pass Rate"
-    },
-    {
-      badge: "Flexible Batch Timings",
-      title: "Learn at Your Own Pace",
-      highlight: "Around Your Busy Life",
-      subtitle: "Early morning, late evening, or weekend slots available. Learn to drive in modern, dual-control vehicles equipped with the latest safety features and certified dual pedals.",
-      image: "https://images.unsplash.com/photo-1549317661-bd32c8ce0db2?q=80&w=2070&auto=format&fit=crop",
-      tag: "Doorstep Pick & Drop",
-      ctaText: "View Course Packages",
-      ctaLink: "#services",
-      secondaryText: "Meet Our Instructors",
-      secondaryLink: "#testimonials",
-      metric: "12,000+",
-      metricLabel: "Lessons Completed"
-    },
-    {
-      badge: "Proven Curriculum & RTO Prep",
-      title: "Join Thousands of Proud,",
-      highlight: "Licensed Drivers",
-      subtitle: "Boasting a high first-time pass rate, our structured curriculum is designed to turn nervous beginners into smart, defensive, and road-ready licensed drivers.",
-      image: "https://images.unsplash.com/photo-1508974239320-0a029497e820?q=80&w=2070&auto=format&fit=crop",
-      tag: "RTO Test Simulation",
-      ctaText: "Meet Our Coaches",
-      ctaLink: "#testimonials",
-      secondaryText: "Book Mock Test",
-      secondaryLink: "#book",
-      metric: "4.9 / 5",
-      metricLabel: "Student Satisfaction"
-    }
-  ];
-
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [isPaused, setIsPaused] = useState(false);
-
-  useEffect(() => {
-    if (isPaused) return;
-    const timer = setInterval(() => {
-      setCurrentSlide((prev) => (prev + 1) % slides.length);
-    }, 6500);
-    return () => clearInterval(timer);
-  }, [slides.length, isPaused]);
-
-  const nextSlide = () => setCurrentSlide((prev) => (prev + 1) % slides.length);
-  const prevSlide = () => setCurrentSlide((prev) => (prev - 1 + slides.length) % slides.length);
-
   return (
     <section 
       id="home" 
-      className="relative min-h-screen pt-24 pb-16 lg:pt-28 lg:pb-20 flex items-center bg-gradient-to-br from-slate-900 via-slate-950 to-blue-950 text-white overflow-hidden"
-      onMouseEnter={() => setIsPaused(true)}
-      onMouseLeave={() => setIsPaused(false)}
+      className="relative pt-28 pb-14 lg:pt-36 lg:pb-16 bg-gradient-to-b from-orange-50/30 via-white to-white text-slate-900 overflow-hidden"
     >
       {/* Background ambient lighting */}
-      <div className="absolute top-10 left-10 w-[600px] h-[600px] bg-blue-600/15 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute bottom-10 right-10 w-[550px] h-[550px] bg-orange-500/15 rounded-full blur-[160px] pointer-events-none" />
-      <div className="absolute inset-0 bg-[radial-gradient(rgba(255,255,255,0.04)_1px,transparent_1px)] [background-size:28px_28px] pointer-events-none opacity-40" />
+      <div className="absolute top-10 left-1/4 w-[500px] h-[350px] bg-orange-100/35 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-20 right-10 w-[450px] h-[350px] bg-blue-100/25 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-8 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           
-          {/* Left Column: Copy & Value Proposition */}
-          <div className="lg:col-span-7 text-center lg:text-left">
-            {/* Pill Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-slate-800/90 border border-slate-700/80 text-orange-400 text-xs font-bold tracking-wider uppercase mb-6 shadow-sm">
-              <span className="w-2 h-2 rounded-full bg-orange-400 animate-pulse" />
-              <span>{slides[currentSlide].badge}</span>
+          {/* Left Column: Heading & Content */}
+          <div className="lg:col-span-6 xl:col-span-6 text-center lg:text-left z-10">
+            
+            {/* Top Pill Badge */}
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200/90 text-orange-700 text-xs font-semibold mb-6 shadow-xs">
+              <span className="w-5 h-5 rounded-full bg-orange-500 text-white flex items-center justify-center">
+                <SteeringWheelIcon className="w-3.5 h-3.5" />
+              </span>
+              <span>Flexible Batches</span>
+              <span className="text-orange-300">|</span>
+              <span>Certified Instructors</span>
             </div>
 
-            {/* Headline with dynamic transition */}
-            <div className="min-h-[170px] sm:min-h-[190px] lg:min-h-[220px]">
-              <h1 className="text-4xl sm:text-5xl lg:text-[3.85rem] font-extrabold tracking-tight leading-[1.12] mb-5 text-white">
-                {slides[currentSlide].title}{' '}
-                <span className="block text-transparent bg-clip-text bg-gradient-to-r from-orange-400 via-amber-300 to-yellow-400 mt-1">
-                  {slides[currentSlide].highlight}
-                </span>
-              </h1>
-              
-              <p className="text-base sm:text-lg text-slate-300 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal">
-                {slides[currentSlide].subtitle}
-              </p>
-            </div>
+            {/* Main Title matching screenshot */}
+            <h1 className="text-4xl sm:5xl lg:text-[3.5rem] xl:text-[3.85rem] font-black text-[#131b2e] tracking-tight leading-[1.12] mb-5 font-sans">
+              Learn at Your Own Pace <br />
+              <span className="text-[#f97316]">Around Your Busy Life</span>
+            </h1>
 
-            {/* Action Buttons */}
-            <div className="mt-8 sm:mt-10 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            {/* Subtitle Description */}
+            <p className="text-base sm:text-lg text-slate-600 max-w-xl mx-auto lg:mx-0 leading-relaxed font-normal mb-8">
+              Early morning, late evening, or weekend slots available. Learn to drive in modern, dual-control vehicles equipped with the latest safety features and certified dual pedals.
+            </p>
+
+            {/* Call To Action Buttons */}
+            <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <a
-                href={slides[currentSlide].ctaLink}
-                className="w-full sm:w-auto bg-gradient-to-r from-orange-500 to-amber-500 hover:from-orange-600 hover:to-amber-600 text-white px-8 py-4 rounded-2xl font-bold text-base transition-all duration-300 shadow-xl shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
+                href="#services"
+                className="w-full sm:w-auto bg-[#f97316] hover:bg-[#ea580c] text-white px-8 py-4 rounded-full font-bold text-base transition-all duration-300 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
               >
-                <span>{slides[currentSlide].ctaText}</span>
+                <span>View Course Packages</span>
                 <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
               </a>
 
               <a
-                href={slides[currentSlide].secondaryLink}
-                className="w-full sm:w-auto bg-slate-800/80 hover:bg-slate-700 text-slate-200 hover:text-white px-7 py-4 rounded-2xl font-semibold text-base transition-all duration-300 border border-slate-700/80 hover:border-slate-600 flex items-center justify-center"
+                href="#testimonials"
+                className="w-full sm:w-auto bg-white hover:bg-slate-50 text-[#1e293b] px-7 py-4 rounded-full font-bold text-base transition-all duration-300 border-2 border-[#1e293b] hover:border-black flex items-center justify-center gap-2.5 group shadow-xs"
               >
-                {slides[currentSlide].secondaryText}
+                <div className="w-6 h-6 rounded-full border-2 border-[#1e293b] flex items-center justify-center">
+                  <User size={13} className="text-[#1e293b]" />
+                </div>
+                <span>Meet Our Instructors</span>
               </a>
-            </div>
-
-            {/* Social Proof / Trust Footnote */}
-            <div className="mt-12 pt-8 border-t border-slate-800/80 flex flex-wrap items-center justify-center lg:justify-start gap-6 sm:gap-10 text-xs sm:text-sm text-slate-400">
-              <div className="flex items-center gap-2">
-                <div className="flex -space-x-2">
-                  <span className="w-7 h-7 rounded-full bg-blue-600 text-white font-bold text-[10px] flex items-center justify-center ring-2 ring-slate-900">MV</span>
-                  <span className="w-7 h-7 rounded-full bg-orange-500 text-white font-bold text-[10px] flex items-center justify-center ring-2 ring-slate-900">SJ</span>
-                  <span className="w-7 h-7 rounded-full bg-emerald-600 text-white font-bold text-[10px] flex items-center justify-center ring-2 ring-slate-900">DR</span>
-                </div>
-                <span className="font-semibold text-slate-300">Certified Coaches</span>
-              </div>
-
-              <div className="flex items-center gap-1.5">
-                <div className="flex text-amber-400">
-                  {[...Array(5)].map((_, i) => (
-                    <Star key={i} size={13} fill="currentColor" />
-                  ))}
-                </div>
-                <span className="font-semibold text-white">4.9/5</span>
-                <span className="text-slate-500">(1,800+ Reviews)</span>
-              </div>
-
-              <div className="flex items-center gap-1.5">
-                <ShieldCheck size={16} className="text-emerald-400" />
-                <span className="text-slate-300">100% Dual-Control Cars</span>
-              </div>
             </div>
           </div>
 
-          {/* Right Column: Visual Stage with Card Frame */}
-          <div className="lg:col-span-5 relative flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[480px]">
+          {/* Right Column: Hero Visual Image Stage */}
+          <div className="lg:col-span-6 xl:col-span-6 relative flex justify-center lg:justify-end lg:-mr-6 xl:-mr-14 2xl:-mr-20">
+            <div className="relative w-full max-w-[620px] lg:max-w-none">
               
-              {/* Outer Glow frame */}
-              <div className="absolute -inset-1.5 bg-gradient-to-tr from-orange-500/30 to-blue-600/30 rounded-[2.5rem] blur-xl opacity-70" />
-
-              {/* Main Image Slider Canvas */}
-              <div className="relative h-[420px] sm:h-[490px] rounded-[2.2rem] overflow-hidden bg-slate-900 border border-slate-700/80 shadow-2xl group">
-                {slides.map((slide, i) => (
-                  <div
-                    key={i}
-                    className={`absolute inset-0 transition-all duration-1000 ease-out transform ${
-                      i === currentSlide 
-                        ? 'opacity-100 scale-100 z-10' 
-                        : 'opacity-0 scale-105 pointer-events-none z-0'
-                    }`}
-                  >
-                    <img
-                      src={slide.image}
-                      alt={slide.title}
-                      className="w-full h-full object-cover"
-                    />
-                    {/* Atmospheric gradient overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-950/25 to-transparent" />
-                  </div>
-                ))}
-
-                {/* Floating Metric Badge (Top Right) */}
-                <div className="absolute top-5 right-5 z-20 bg-slate-900/85 backdrop-blur-md border border-slate-700/80 px-4 py-2.5 rounded-2xl shadow-xl">
-                  <p className="text-xs font-semibold text-slate-400 uppercase tracking-wider">{slides[currentSlide].metricLabel}</p>
-                  <p className="text-xl font-black text-orange-400">{slides[currentSlide].metric}</p>
+              {/* Playful Floating Scribble Badge (Top Right) */}
+              <div className="absolute -top-7 right-6 lg:right-12 z-20 hidden sm:flex flex-col items-center rotate-6 pointer-events-none">
+                <span className="text-[13px] font-black text-[#1e293b] tracking-wide text-center leading-tight font-sans drop-shadow-xs">
+                  Your<br />Driving Journey<br />Starts Here!
+                </span>
+                <div className="flex gap-0.5 -mt-0.5 ml-8 text-amber-500">
+                  <span className="text-xs">✦</span>
+                  <span className="text-[9px]">✦</span>
                 </div>
+              </div>
 
-                {/* Floating Feature Chip (Bottom Left) */}
-                <div className="absolute bottom-6 left-6 right-6 z-20 bg-slate-900/90 backdrop-blur-md border border-slate-700/80 p-4 rounded-2xl shadow-xl flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-xl bg-orange-500/20 text-orange-400 flex items-center justify-center font-bold">
-                      <Award size={20} />
-                    </div>
-                    <div>
-                      <p className="text-xs uppercase font-bold text-slate-400 tracking-wider">Feature Highlight</p>
-                      <p className="text-sm font-bold text-white">{slides[currentSlide].tag}</p>
-                    </div>
+              {/* Main Image Container - Natural blend without hard borders */}
+              <div className="relative w-full overflow-visible group flex justify-center lg:justify-end">
+                <img
+                  src="/images/Instructor.png"
+                  alt="DrivePro Driving Lessons"
+                  className="w-full lg:w-[110%] xl:w-[115%] h-auto max-h-[560px] lg:max-h-[640px] xl:max-h-[700px] object-contain object-right-bottom drop-shadow-xl transform lg:translate-x-4 xl:translate-x-8"
+                  style={{
+                    maskImage: 'linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%), linear-gradient(to right, transparent 0%, black 12%, black 86%, transparent 100%)',
+                    WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%), linear-gradient(to right, transparent 0%, black 12%, black 86%, transparent 100%)',
+                    maskComposite: 'intersect',
+                    WebkitMaskComposite: 'destination-in'
+                  }}
+                />
+
+                {/* Soft gradient fades for flawless background blending on all edges */}
+                <div className="absolute inset-y-0 left-0 w-16 sm:w-24 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-y-0 right-0 w-16 sm:w-24 bg-gradient-to-l from-white via-white/80 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-x-0 bottom-0 h-16 sm:h-24 bg-gradient-to-t from-white via-white/85 to-transparent pointer-events-none z-10" />
+                <div className="absolute inset-x-0 top-0 h-16 sm:h-20 bg-gradient-to-b from-white via-white/70 to-transparent pointer-events-none z-10" />
+
+                {/* Floating "Happy Learners" Badge (Bottom Right of Image) */}
+                <div className="absolute bottom-3 right-2 sm:right-6 lg:right-10 z-20 bg-blue-50/95 backdrop-blur-md border border-blue-200/90 py-2.5 px-4 rounded-2xl shadow-xl flex items-center gap-3">
+                  <div className="w-10 h-10 rounded-xl bg-[#1e40af] text-white flex items-center justify-center font-bold shadow-md shadow-blue-900/20">
+                    <Users size={20} />
                   </div>
-
-                  {/* Manual Arrow Controls */}
-                  <div className="flex items-center gap-1.5">
-                    <button
-                      onClick={prevSlide}
-                      className="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-white flex items-center justify-center border border-slate-700 transition-colors"
-                      aria-label="Previous slide"
-                    >
-                      <ChevronLeft size={16} />
-                    </button>
-                    <button
-                      onClick={nextSlide}
-                      className="w-8 h-8 rounded-full bg-slate-800 hover:bg-slate-700 text-white flex items-center justify-center border border-slate-700 transition-colors"
-                      aria-label="Next slide"
-                    >
-                      <ChevronRight size={16} />
-                    </button>
+                  <div className="text-left">
+                    <p className="text-base font-black text-[#0f172a] leading-tight">12,000+</p>
+                    <p className="text-[11px] font-semibold text-slate-600">Happy Learners and Counting</p>
                   </div>
                 </div>
               </div>
 
-              {/* Slide Progress Bars below image */}
-              <div className="flex items-center justify-center gap-2.5 mt-5">
-                {slides.map((_, i) => (
-                  <button
-                    key={i}
-                    onClick={() => setCurrentSlide(i)}
-                    className={`h-1.5 rounded-full transition-all duration-500 cursor-pointer ${
-                      i === currentSlide 
-                        ? 'w-10 bg-gradient-to-r from-orange-400 to-amber-400' 
-                        : 'w-2.5 bg-slate-700 hover:bg-slate-600'
-                    }`}
-                    aria-label={`Jump to slide ${i + 1}`}
-                  />
-                ))}
-              </div>
             </div>
           </div>
 
         </div>
+
+        {/* Bottom Feature Strip (Matching Exact Mockup) */}
+        <div className="mt-14 pt-8 border-t border-slate-100 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+          
+          {/* Card 1: Dual Control Vehicles */}
+          <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-slate-100 shadow-xs">
+            <div className="w-11 h-11 rounded-2xl bg-orange-50 border border-orange-100/80 flex items-center justify-center shrink-0">
+              <CarFrontIcon className="w-5 h-5 text-orange-500" />
+            </div>
+            <div>
+              <p className="text-xs font-bold text-slate-900 leading-snug">Dual Control</p>
+              <p className="text-[11px] text-slate-500 font-medium">Vehicles</p>
+            </div>
+          </div>
+
+          {/* Card 2: Experienced & Certified Instructors */}
+          <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-slate-100 shadow-xs">
+            <div className="w-11 h-11 rounded-2xl bg-blue-50 border border-blue-100/80 flex items-center justify-center shrink-0">
+              <User size={20} className="text-blue-600" />
+            </div>
+            <div>
+              <p className="text-xs font-bold text-slate-900 leading-snug">Experienced &amp;</p>
+              <p className="text-[11px] text-slate-500 font-medium">Certified Instructors</p>
+            </div>
+          </div>
+
+          {/* Card 3: Safe & Structured Training */}
+          <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-slate-100 shadow-xs">
+            <div className="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-100/80 flex items-center justify-center shrink-0">
+              <Shield size={20} className="text-emerald-600" />
+            </div>
+            <div>
+              <p className="text-xs font-bold text-slate-900 leading-snug">Safe &amp; Structured</p>
+              <p className="text-[11px] text-slate-500 font-medium">Training</p>
+            </div>
+          </div>
+
+          {/* Card 4: Modern Vehicles with Dual Pedals */}
+          <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-slate-100 shadow-xs">
+            <div className="w-11 h-11 rounded-2xl bg-purple-50 border border-purple-100/80 flex items-center justify-center shrink-0">
+              <CertificateIcon className="w-5 h-5 text-purple-600" />
+            </div>
+            <div>
+              <p className="text-xs font-bold text-slate-900 leading-snug">Modern Vehicles</p>
+              <p className="text-[11px] text-slate-500 font-medium">with Dual Pedals</p>
+            </div>
+          </div>
+
+        </div>
+
       </div>
     </section>
   );
 };
 
 export default Hero;
+
+
 
