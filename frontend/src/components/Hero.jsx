@@ -122,7 +122,7 @@ const Hero = () => {
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[480px] lg:min-h-[540px]">
           
           {/* Left Column (Heading & Content) */}
-          <div className="lg:col-span-6 xl:col-span-5 text-center lg:text-left z-20 py-2">
+          <div className="lg:col-span-7 xl:col-span-7 text-center lg:text-left z-20 py-2">
             
             {/* Top Pill Badge */}
             <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-orange-50/90 border border-orange-200/80 text-orange-700 text-xs font-semibold mb-6 shadow-xs">
@@ -134,10 +134,14 @@ const Hero = () => {
               <span>Certified Instructors</span>
             </div>
 
-            {/* Main Title matching screenshot */}
-            <h1 className="text-4xl sm:text-5xl lg:text-[3.35rem] xl:text-[3.85rem] font-black text-[#131b2e] tracking-tight leading-[1.12] mb-5 font-sans">
-              Learn at Your Own Pace <br />
-              <span className="text-[#f97316]">Around Your Busy Life</span>
+            {/* Main Title: Black title in 1 line, Orange title in 1 line */}
+            <h1 className="text-3xl sm:text-4xl md:text-[2.75rem] lg:text-[2.65rem] xl:text-[3.15rem] font-black tracking-tight leading-[1.16] mb-5 font-sans">
+              <span className="block text-[#131b2e] sm:whitespace-nowrap">
+                Learn at Your Own Pace
+              </span>
+              <span className="block text-[#f97316] sm:whitespace-nowrap mt-1">
+                Around Your Busy Life
+              </span>
             </h1>
 
             {/* Subtitle Description */}
@@ -168,7 +172,7 @@ const Hero = () => {
           </div>
 
           {/* Right Column Spacer for Desktop Grid (Desktop visual is positioned absolute full-bleed) */}
-          <div className="hidden lg:block lg:col-span-6 xl:col-span-7 h-full min-h-[500px] pointer-events-none" />
+          <div className="hidden lg:block lg:col-span-5 xl:col-span-5 h-full min-h-[500px] pointer-events-none" />
 
           {/* Mobile Visual (< lg screens) */}
           <div className="block lg:hidden relative w-full mt-6 mb-4 overflow-hidden rounded-2xl">
