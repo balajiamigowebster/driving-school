@@ -58,20 +58,74 @@ const Hero = () => {
   return (
     <section 
       id="home" 
-      className="relative pt-28 pb-14 lg:pt-36 lg:pb-16 bg-gradient-to-b from-orange-50/30 via-white to-white text-slate-900 overflow-hidden"
+      className="relative pt-24 pb-12 lg:pt-28 lg:pb-16 bg-white text-slate-900 overflow-hidden"
     >
-      {/* Background ambient lighting */}
-      <div className="absolute top-10 left-1/4 w-[500px] h-[350px] bg-orange-100/35 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-20 right-10 w-[450px] h-[350px] bg-blue-100/25 rounded-full blur-[140px] pointer-events-none" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+      {/* Desktop Full-Bleed Right Visual Stage (Touches Right Edge with 0 gap, height adjusted to markings) */}
+      <div className="hidden lg:flex absolute right-0 top-20 lg:top-24 xl:top-28 bottom-28 lg:bottom-32 lg:w-[50vw] xl:w-[52vw] 2xl:w-[50vw] items-center justify-end z-10 pointer-events-none">
+        <div className="relative w-full h-full max-h-[470px] xl:max-h-[500px] flex items-center justify-end">
           
-          {/* Left Column: Heading & Content */}
-          <div className="lg:col-span-6 xl:col-span-6 text-center lg:text-left z-10">
+          {/* Playful Floating Scribble Badge (Top Right in Sky, safely below navbar) */}
+          <div className="absolute top-2 xl:top-4 right-10 xl:right-16 z-20 flex flex-col items-center rotate-3 select-none">
+            <span className="text-xs xl:text-[13px] font-black text-[#1e293b] tracking-wide text-center leading-tight font-sans drop-shadow-xs">
+              Your<br />Driving Journey<br />Starts Here!
+            </span>
+            <div className="flex gap-1 -mt-0.5 ml-8 text-amber-500">
+              <span className="text-sm">✦</span>
+              <span className="text-[10px]">✦</span>
+            </div>
+          </div>
+
+          {/* Hero Image Touching Right Edge with Reduced Height */}
+          <img
+            src="/images/hero.png"
+            alt="DrivePro Driving Lessons"
+            className="w-full h-full object-cover object-right-center"
+            style={{
+              maskImage: 'linear-gradient(to right, transparent 0%, transparent 3%, black 20%, black 100%), linear-gradient(to bottom, transparent 0%, black 8%, black 90%, transparent 100%)',
+              WebkitMaskImage: 'linear-gradient(to right, transparent 0%, transparent 3%, black 20%, black 100%), linear-gradient(to bottom, transparent 0%, black 8%, black 90%, transparent 100%)',
+              maskComposite: 'intersect',
+              WebkitMaskComposite: 'destination-in'
+            }}
+          />
+
+          {/* DrivePro Car Door Branding Decal */}
+          <div className="absolute right-10 xl:right-14 bottom-14 xl:bottom-18 select-none drop-shadow-xs">
+            <div className="flex items-center">
+              <span className="text-xl xl:text-2xl font-black text-[#1e3a8a] tracking-tight">Drive</span>
+              <span className="text-xl xl:text-2xl font-black text-[#f97316] tracking-tight">Pro</span>
+            </div>
+            <div className="text-[9px] xl:text-[10px] font-bold text-slate-700 tracking-wider flex items-center gap-1 mt-0.5">
+              <span>Learn</span>
+              <span className="text-[#f97316] text-[7px]">•</span>
+              <span>Drive</span>
+              <span className="text-[#f97316] text-[7px]">•</span>
+              <span>Be Safe</span>
+            </div>
+          </div>
+
+          {/* Floating "Happy Learners" Badge (Bottom Right over Car) */}
+          <div className="absolute bottom-2 right-8 xl:right-12 z-20 bg-white/95 backdrop-blur-md border border-slate-100 shadow-xl py-2.5 px-4.5 rounded-2xl flex items-center gap-3">
+            <div className="w-10 h-10 rounded-xl bg-[#1e40af] text-white flex items-center justify-center font-bold shadow-md shadow-blue-900/20">
+              <Users size={20} />
+            </div>
+            <div className="text-left">
+              <p className="text-base font-black text-[#0f172a] leading-tight">12,000+</p>
+              <p className="text-[11px] font-semibold text-slate-600">Happy Learners and Counting</p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
+        {/* Main 2-Column Content Row */}
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center min-h-[480px] lg:min-h-[540px]">
+          
+          {/* Left Column (Heading & Content) */}
+          <div className="lg:col-span-6 xl:col-span-5 text-center lg:text-left z-20 py-2">
             
             {/* Top Pill Badge */}
-            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-orange-50 border border-orange-200/90 text-orange-700 text-xs font-semibold mb-6 shadow-xs">
+            <div className="inline-flex items-center gap-2.5 px-4 py-1.5 rounded-full bg-orange-50/90 border border-orange-200/80 text-orange-700 text-xs font-semibold mb-6 shadow-xs">
               <span className="w-5 h-5 rounded-full bg-orange-500 text-white flex items-center justify-center">
                 <SteeringWheelIcon className="w-3.5 h-3.5" />
               </span>
@@ -81,7 +135,7 @@ const Hero = () => {
             </div>
 
             {/* Main Title matching screenshot */}
-            <h1 className="text-4xl sm:5xl lg:text-[3.5rem] xl:text-[3.85rem] font-black text-[#131b2e] tracking-tight leading-[1.12] mb-5 font-sans">
+            <h1 className="text-4xl sm:text-5xl lg:text-[3.35rem] xl:text-[3.85rem] font-black text-[#131b2e] tracking-tight leading-[1.12] mb-5 font-sans">
               Learn at Your Own Pace <br />
               <span className="text-[#f97316]">Around Your Busy Life</span>
             </h1>
@@ -95,7 +149,7 @@ const Hero = () => {
             <div className="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
               <a
                 href="#services"
-                className="w-full sm:w-auto bg-[#f97316] hover:bg-[#ea580c] text-white px-8 py-4 rounded-full font-bold text-base transition-all duration-300 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 flex items-center justify-center gap-2 group"
+                className="w-full sm:w-auto bg-[#f97316] hover:bg-[#ea580c] text-white px-8 py-4 rounded-full font-bold text-base transition-all duration-300 shadow-lg shadow-orange-500/25 hover:shadow-orange-500/40 hover:-translate-y-0.5 flex items-center justify-center gap-2 group pointer-events-auto"
               >
                 <span>View Course Packages</span>
                 <ArrowRight size={18} className="transform group-hover:translate-x-1 transition-transform" />
@@ -103,7 +157,7 @@ const Hero = () => {
 
               <a
                 href="#testimonials"
-                className="w-full sm:w-auto bg-white hover:bg-slate-50 text-[#1e293b] px-7 py-4 rounded-full font-bold text-base transition-all duration-300 border-2 border-[#1e293b] hover:border-black flex items-center justify-center gap-2.5 group shadow-xs"
+                className="w-full sm:w-auto bg-white hover:bg-slate-50 text-[#1e293b] px-7 py-4 rounded-full font-bold text-base transition-all duration-300 border-2 border-[#1e293b] hover:border-black flex items-center justify-center gap-2.5 group shadow-xs pointer-events-auto"
               >
                 <div className="w-6 h-6 rounded-full border-2 border-[#1e293b] flex items-center justify-center">
                   <User size={13} className="text-[#1e293b]" />
@@ -113,64 +167,56 @@ const Hero = () => {
             </div>
           </div>
 
-          {/* Right Column: Hero Visual Image Stage */}
-          <div className="lg:col-span-6 xl:col-span-6 relative flex justify-center lg:justify-end lg:-mr-6 xl:-mr-14 2xl:-mr-20">
-            <div className="relative w-full max-w-[620px] lg:max-w-none">
-              
-              {/* Playful Floating Scribble Badge (Top Right) */}
-              <div className="absolute -top-7 right-6 lg:right-12 z-20 hidden sm:flex flex-col items-center rotate-6 pointer-events-none">
-                <span className="text-[13px] font-black text-[#1e293b] tracking-wide text-center leading-tight font-sans drop-shadow-xs">
-                  Your<br />Driving Journey<br />Starts Here!
-                </span>
-                <div className="flex gap-0.5 -mt-0.5 ml-8 text-amber-500">
-                  <span className="text-xs">✦</span>
-                  <span className="text-[9px]">✦</span>
-                </div>
+          {/* Right Column Spacer for Desktop Grid (Desktop visual is positioned absolute full-bleed) */}
+          <div className="hidden lg:block lg:col-span-6 xl:col-span-7 h-full min-h-[500px] pointer-events-none" />
+
+          {/* Mobile Visual (< lg screens) */}
+          <div className="block lg:hidden relative w-full mt-6 mb-4 overflow-hidden rounded-2xl">
+            <div className="absolute top-2 right-4 z-20 flex flex-col items-center rotate-3 pointer-events-none select-none">
+              <span className="text-xs font-black text-[#1e293b]">Your<br />Driving Journey<br />Starts Here!</span>
+              <div className="flex gap-1 -mt-0.5 ml-6 text-amber-500">
+                <span className="text-xs">✦</span>
+                <span className="text-[9px]">✦</span>
               </div>
+            </div>
 
-              {/* Main Image Container - Natural blend without hard borders */}
-              <div className="relative w-full overflow-visible group flex justify-center lg:justify-end">
-                <img
-                  src="/images/Instructor.png"
-                  alt="DrivePro Driving Lessons"
-                  className="w-full lg:w-[110%] xl:w-[115%] h-auto max-h-[560px] lg:max-h-[640px] xl:max-h-[700px] object-contain object-right-bottom drop-shadow-xl transform lg:translate-x-4 xl:translate-x-8"
-                  style={{
-                    maskImage: 'linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%), linear-gradient(to right, transparent 0%, black 12%, black 86%, transparent 100%)',
-                    WebkitMaskImage: 'linear-gradient(to bottom, transparent 0%, black 14%, black 86%, transparent 100%), linear-gradient(to right, transparent 0%, black 12%, black 86%, transparent 100%)',
-                    maskComposite: 'intersect',
-                    WebkitMaskComposite: 'destination-in'
-                  }}
-                />
+            <img
+              src="/images/hero.png"
+              alt="DrivePro Driving Lessons"
+              className="w-full h-auto object-cover rounded-2xl"
+              style={{
+                maskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 100%), linear-gradient(to bottom, transparent 0%, black 6%, black 92%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 15%, black 100%), linear-gradient(to bottom, transparent 0%, black 6%, black 92%, transparent 100%)',
+              }}
+            />
 
-                {/* Soft gradient fades for flawless background blending on all edges */}
-                <div className="absolute inset-y-0 left-0 w-16 sm:w-24 bg-gradient-to-r from-white via-white/80 to-transparent pointer-events-none z-10" />
-                <div className="absolute inset-y-0 right-0 w-16 sm:w-24 bg-gradient-to-l from-white via-white/80 to-transparent pointer-events-none z-10" />
-                <div className="absolute inset-x-0 bottom-0 h-16 sm:h-24 bg-gradient-to-t from-white via-white/85 to-transparent pointer-events-none z-10" />
-                <div className="absolute inset-x-0 top-0 h-16 sm:h-20 bg-gradient-to-b from-white via-white/70 to-transparent pointer-events-none z-10" />
-
-                {/* Floating "Happy Learners" Badge (Bottom Right of Image) */}
-                <div className="absolute bottom-3 right-2 sm:right-6 lg:right-10 z-20 bg-blue-50/95 backdrop-blur-md border border-blue-200/90 py-2.5 px-4 rounded-2xl shadow-xl flex items-center gap-3">
-                  <div className="w-10 h-10 rounded-xl bg-[#1e40af] text-white flex items-center justify-center font-bold shadow-md shadow-blue-900/20">
-                    <Users size={20} />
-                  </div>
-                  <div className="text-left">
-                    <p className="text-base font-black text-[#0f172a] leading-tight">12,000+</p>
-                    <p className="text-[11px] font-semibold text-slate-600">Happy Learners and Counting</p>
-                  </div>
-                </div>
+            <div className="absolute right-4 bottom-14 select-none">
+              <div className="flex items-center">
+                <span className="text-xl font-black text-[#1e3a8a]">Drive</span>
+                <span className="text-xl font-black text-[#f97316]">Pro</span>
               </div>
+              <p className="text-[9px] font-bold text-slate-700">Learn • Drive • Be Safe</p>
+            </div>
 
+            <div className="absolute bottom-2 right-2 bg-white/95 backdrop-blur-md border border-slate-100 shadow-lg py-2 px-3 rounded-xl flex items-center gap-2.5">
+              <div className="w-8 h-8 rounded-lg bg-[#1e40af] text-white flex items-center justify-center">
+                <Users size={16} />
+              </div>
+              <div className="text-left">
+                <p className="text-sm font-black text-[#0f172a] leading-tight">12,000+</p>
+                <p className="text-[10px] font-semibold text-slate-600">Happy Learners</p>
+              </div>
             </div>
           </div>
 
         </div>
 
-        {/* Bottom Feature Strip (Matching Exact Mockup) */}
-        <div className="mt-14 pt-8 border-t border-slate-100 grid grid-cols-2 md:grid-cols-4 gap-4 sm:gap-6">
+        {/* Bottom Feature Strip (Matching Exact Mockup 4 Cards) */}
+        <div className="mt-8 sm:mt-10 grid grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 relative z-20">
           
           {/* Card 1: Dual Control Vehicles */}
-          <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-slate-100 shadow-xs">
-            <div className="w-11 h-11 rounded-2xl bg-orange-50 border border-orange-100/80 flex items-center justify-center shrink-0">
+          <div className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white border border-slate-100 shadow-xs hover:shadow-sm transition-shadow">
+            <div className="w-11 h-11 rounded-xl bg-orange-50 border border-orange-100/80 flex items-center justify-center shrink-0">
               <CarFrontIcon className="w-5 h-5 text-orange-500" />
             </div>
             <div>
@@ -180,8 +226,8 @@ const Hero = () => {
           </div>
 
           {/* Card 2: Experienced & Certified Instructors */}
-          <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-slate-100 shadow-xs">
-            <div className="w-11 h-11 rounded-2xl bg-blue-50 border border-blue-100/80 flex items-center justify-center shrink-0">
+          <div className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white border border-slate-100 shadow-xs hover:shadow-sm transition-shadow">
+            <div className="w-11 h-11 rounded-xl bg-blue-50 border border-blue-100/80 flex items-center justify-center shrink-0">
               <User size={20} className="text-blue-600" />
             </div>
             <div>
@@ -191,8 +237,8 @@ const Hero = () => {
           </div>
 
           {/* Card 3: Safe & Structured Training */}
-          <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-slate-100 shadow-xs">
-            <div className="w-11 h-11 rounded-2xl bg-emerald-50 border border-emerald-100/80 flex items-center justify-center shrink-0">
+          <div className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white border border-slate-100 shadow-xs hover:shadow-sm transition-shadow">
+            <div className="w-11 h-11 rounded-xl bg-emerald-50 border border-emerald-100/80 flex items-center justify-center shrink-0">
               <Shield size={20} className="text-emerald-600" />
             </div>
             <div>
@@ -202,8 +248,8 @@ const Hero = () => {
           </div>
 
           {/* Card 4: Modern Vehicles with Dual Pedals */}
-          <div className="flex items-center gap-3.5 p-3 rounded-2xl bg-white border border-slate-100 shadow-xs">
-            <div className="w-11 h-11 rounded-2xl bg-purple-50 border border-purple-100/80 flex items-center justify-center shrink-0">
+          <div className="flex items-center gap-3.5 p-3.5 rounded-2xl bg-white border border-slate-100 shadow-xs hover:shadow-sm transition-shadow">
+            <div className="w-11 h-11 rounded-xl bg-purple-50 border border-purple-100/80 flex items-center justify-center shrink-0">
               <CertificateIcon className="w-5 h-5 text-purple-600" />
             </div>
             <div>
