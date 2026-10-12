@@ -61,9 +61,9 @@ const Contact = () => {
             <div className="mb-6">
               <label className="block text-sm font-medium text-slate-700 mb-2">Preferred Package</label>
               <select className="w-full px-4 py-3 rounded-xl border border-slate-200 focus:ring-2 focus:ring-blue-600 focus:border-transparent outline-none transition-all bg-white text-slate-700">
-                <option>Beginner Course ($299)</option>
-                <option>Refresher Course ($149)</option>
-                <option>License Test Prep ($99)</option>
+                <option>Starter Beginner Package (₹7,499 - 10 Hours)</option>
+                <option>Complete Mastery Package (₹13,999 - 20 Hours)</option>
+                <option>Road Test Express (₹2,999 - 3 Hours)</option>
                 <option>Custom Request</option>
               </select>
             </div>

@@ -16,7 +16,8 @@ const Navbar = () => {
             <a href="#home" className="hover:text-orange-500 transition-colors">Home</a>
             <a href="#services" className="hover:text-orange-500 transition-colors">Services</a>
             <a href="#features" className="hover:text-orange-500 transition-colors">Why Us</a>
-            <a href="#testimonials" className="hover:text-orange-500 transition-colors">Testimonials</a>
+            <a href="#testimonials" className="hover:text-orange-500 transition-colors">Instructors</a>
+            <a href="#faq" className="hover:text-orange-500 transition-colors">FAQ</a>
             <a href="#contact" className="hover:text-orange-500 transition-colors">Contact</a>
             <a href="#book" className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2 rounded-full font-semibold transition-all shadow-lg hover:shadow-orange-500/30">
               Book a Lesson
@@ -35,7 +36,8 @@ const Navbar = () => {
             <a href="#home" className="block hover:text-orange-500" onClick={()=>setIsOpen(false)}>Home</a>
             <a href="#services" className="block hover:text-orange-500" onClick={()=>setIsOpen(false)}>Services</a>
             <a href="#features" className="block hover:text-orange-500" onClick={()=>setIsOpen(false)}>Why Us</a>
-            <a href="#testimonials" className="block hover:text-orange-500" onClick={()=>setIsOpen(false)}>Testimonials</a>
+            <a href="#testimonials" className="block hover:text-orange-500" onClick={()=>setIsOpen(false)}>Instructors</a>
+            <a href="#faq" className="block hover:text-orange-500" onClick={()=>setIsOpen(false)}>FAQ</a>
             <a href="#contact" className="block hover:text-orange-500" onClick={()=>setIsOpen(false)}>Contact</a>
           </div>
         </div>

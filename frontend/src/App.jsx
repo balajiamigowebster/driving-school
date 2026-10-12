@@ -7,6 +7,7 @@ import Features from './components/Features';
 import Services from './components/Services';
 import Testimonials from './components/Testimonials';
 import Contact from './components/Contact';
+import FAQ from './components/FAQ';
 import Footer from './components/Footer';
 
 function App() {
@@ -25,6 +26,7 @@ function App() {
       <Features />
       <Services />
       <Testimonials />
+      <FAQ />
       <Contact />
       <Footer />
     </div>
