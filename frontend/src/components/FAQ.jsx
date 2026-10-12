@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import AOS from 'aos';
 import { ChevronDown, Sparkles, MessageCircleQuestion, PhoneCall, HelpCircle } from 'lucide-react';
 
 const FAQ = () => {
@@ -34,15 +35,18 @@ const FAQ = () => {
 
   const toggleFAQ = (index) => {
     setOpenIndex(openIndex === index ? -1 : index);
+    setTimeout(() => {
+      AOS.refresh();
+    }, 350);
   };
 
   return (
-    <section id="faq" className="relative min-h-screen py-20 lg:py-24 flex flex-col justify-center bg-white text-slate-900 overflow-hidden">
+    <section id="faq" className="relative py-20 lg:py-24 bg-white text-slate-900 overflow-hidden">
       {/* Background ambient lighting */}
       <div className="absolute top-1/4 left-1/4 w-[500px] h-[300px] bg-blue-100/50 rounded-full blur-[140px] pointer-events-none" />
       <div className="absolute bottom-10 right-1/4 w-[500px] h-[300px] bg-orange-100/40 rounded-full blur-[140px] pointer-events-none" />
 
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full flex-1 flex flex-col justify-center">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 w-full">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-12 sm:mb-14" data-aos="fade-up">
           <div className="inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-blue-50 border border-blue-200/80 text-blue-700 text-xs font-bold tracking-wider uppercase mb-3 shadow-xs">
@@ -58,14 +62,12 @@ const FAQ = () => {
         </div>
 
         {/* Animated Accordion List */}
-        <div className="space-y-3.5">
+        <div className="space-y-3.5" data-aos="fade-up">
           {faqs.map((faq, idx) => {
             const isOpen = openIndex === idx;
             return (
               <div
                 key={idx}
-                data-aos="fade-up"
-                data-aos-delay={idx * 70}
                 className={`rounded-2xl transition-all duration-300 border overflow-hidden ${
                   isOpen
                     ? 'bg-white border-blue-500/70 shadow-[0_12px_32px_-12px_rgba(37,99,235,0.18)] ring-1 ring-blue-500/30'
