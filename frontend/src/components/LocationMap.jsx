@@ -8,7 +8,7 @@ const LocationMap = () => {
       address: "12, 2nd Avenue, Near Anna Nagar Roundtana, Chennai - 600040",
       type: "Main Academy & Simulator Lab",
       phone: "+91 98765 43210",
-      mapQuery: "Anna+Nagar+Chennai"
+      mapQuery: "Anna+Nagar+Chenna"
     },
     {
       area: "Adyar & OMR Practice Zone",
